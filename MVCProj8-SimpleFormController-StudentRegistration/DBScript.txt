@@ -1,0 +1,15 @@
+ SQL>create table studentRegister(registerNo number(5) primary key,name varchar2(20) not null,
+ address varchar2(20) not null,gender varchar2(1) not null,course varchar2(20),mobileNo number(10),
+ email varchar2(20));
+ 
+  Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGISTERNO                                NOT NULL NUMBER(5)
+ NAME                                      NOT NULL VARCHAR2(20)
+ ADDRESS                                   NOT NULL VARCHAR2(20)
+ GENDER                                    NOT NULL VARCHAR2(1)
+ COURSE                                             VARCHAR2(20)
+ MOBILENO                                           NUMBER(10)
+ EMAIL                                              VARCHAR2(20)
+ 
+  CREATE SEQUENCE REGNO START WITH 1000 INCREMENT BY 1;
