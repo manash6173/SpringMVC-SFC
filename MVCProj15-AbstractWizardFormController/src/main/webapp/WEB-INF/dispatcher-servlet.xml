@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+<!-- configure HandlerMapping class -->
+<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+   <property name="mappings">
+      <props>
+         <prop key="home.htm">pvc</prop>
+         <prop key="register.htm">jrc</prop>
+      </props>
+   </property>
+</bean>
+<!-- configure HandlerClass  -->
+<bean id="pvc" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+    <property name="viewName" value="register"/>
+</bean>
+<!-- configure wizard class -->
+<bean id="jrc" class="com.manash.controller.JobRegisterController">
+   <property name="commandName" value="regCmd"/>
+   <property name="commandClass" value="com.manash.command.RegisterCommand"/>
+    <property name="pages">
+        <array>
+           <value>page1</value>
+           <value>page2</value>
+           <value>page3</value>
+        </array>
+    </property>
+</bean>
+<!-- configure ViewResolver class -->
+<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+   <property name="prefix" value="/WEB-INF/pages/"/>
+   <property name="suffix" value=".jsp"/>
+</bean>
+</beans>
