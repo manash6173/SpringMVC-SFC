@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+<!-- configure HandlerMapping class -->
+<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+   <property name="mappings">
+      <props>
+         <prop key="register.htm">pvc</prop>
+         <prop key="add.htm">coc</prop>
+          <prop key="modify.htm">coc</prop>
+           <prop key="remove.htm">coc</prop>
+            <prop key="show.htm">coc</prop>
+      </props>
+   </property>
+</bean>
+<!-- configure HandlerClass -->
+<bean id="pvc" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+   <property name="viewName" value="register"/>
+</bean>
+<bean id="coc" class="com.manash.controller.CURDOperationController">
+   <property name="methodNameResolver" ref="ipmnr"/>
+</bean>
+<!-- configure MethodNameResolver class -->
+<!-- <bean id="pmnr" class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">
+    <property name="paramName" value="s1"/>
+    <property name="defaultMethodName" value="invalid"/>
+</bean> -->
+<!-- <bean id="pmnr" class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
+     <property name="mappings">
+         <props>
+            <prop key="/insert.htm">add</prop>
+             <prop key="/update.htm">modify</prop>
+             <prop key="/remove.htm">remove</prop>
+            <prop key="/view.htm">show</prop>
+         </props>
+     </property>
+</bean> -->
+<bean id="ipmnr" class="org.springframework.web.servlet.mvc.multiaction.InternalPathMethodNameResolver">
+   
+</bean>
+<!-- configure view resolver class  -->
+<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+   <property name="prefix" value="/WEB-INF/pages/"/>
+   <property name="suffix" value=".jsp"/>
+</bean>
+
+</beans>
