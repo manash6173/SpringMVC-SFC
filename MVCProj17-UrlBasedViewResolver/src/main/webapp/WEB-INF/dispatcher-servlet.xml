@@ -26,7 +26,6 @@
     <property name="viewName" value="home"/>
 </bean>
 <bean id="wmgc" class="com.manash.controllrer.WishMessageGeneratorController"/>
-
 <bean id="pvc1" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
     <property name="viewName" value="aboutUs"/>
 </bean>
