@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
+
+<!-- configure HandlerMapping class  -->
+<bean id="suhm" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+  <property name="mappings">
+     <props>
+        <prop key="welcome.do">mc</prop>
+     </props>
+  </property>
+</bean>
+<!-- configure MyController class  -->
+<bean id="mc" class="com.manash.controller.MyController">
+  <constructor-arg name="wishService" ref="service"/>
+</bean>
+<!-- configure view resolver class -->
+<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+   <property name="prefix" value="/WEB-INF/pages/"/>
+   <property name="suffix" value=".jsp"/>
+</bean>
+</beans>

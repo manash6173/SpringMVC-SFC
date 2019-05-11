@@ -1,0 +1,9 @@
+
+SQL> desc product_list;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ PID                                                NUMBER(5)
+ PNAME                                              VARCHAR2(10)
+ PRICE                                              NUMBER(8,2)
+ MFGDATE                                            DATE
+ EXPDATE                                            DATE

@@ -1,0 +1,19 @@
+
+plugins {
+    id 'application'
+    id 'war'
+}
+
+repositories {
+   
+    jcenter()
+}
+
+dependencies {
+// https://mvnrepository.com/artifact/org.springframework/spring-context-support
+compile group: 'org.springframework', name: 'spring-context-support', version: '5.1.6.RELEASE'
+// https://mvnrepository.com/artifact/org.springframework/spring-webmvc
+compile group: 'org.springframework', name: 'spring-webmvc', version: '5.1.6.RELEASE'
+// https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api
+compile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.0.1'
+   }

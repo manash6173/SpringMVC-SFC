@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+<!-- configure HandlerMapping Class -->
+<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+    <property name="mappings">
+       <props>
+           <prop key="welcome.do">hvc</prop>
+           <prop key="wish.do">wmgc</prop>
+           <prop key="about.do">about</prop>
+           <prop key="contact.do">contact</prop>
+       </props>
+    </property>
+</bean>
+<!-- configure controller class  -->
+<bean id="hvc" class="com.manash.controllrer.HomeViewController"/>
+<bean id="wmgc" class="com.manash.controllrer.WishMessageGeneratorController"/>
+<bean id="about" class="com.manash.controllrer.AboutController"/>
+<bean id="contact" class="com.manash.controllrer.ContactController"/>
+<!-- configure ViewResolver class -->
+<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+   <property name="prefix" value="/WEB-INF/pages/"/>
+   <property name="suffix" value=".jsp"/>
+</bean>
+
+
+</beans>
